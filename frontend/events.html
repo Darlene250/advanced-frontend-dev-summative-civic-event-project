@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Events - Civic Event</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body class="bg-slate-100 min-h-screen flex flex-col">
+  <div id="navbar"></div>
+
+  <main class="max-w-6xl mx-auto w-full p-4 flex-1">
+    <h1 class="text-2xl font-bold mb-4">Events</h1>
+
+    <!-- Search + filters -->
+    <div class="flex flex-wrap gap-3 mb-4">
+      <div>
+        <label for="q" class="block text-sm">Search</label>
+        <input id="q" type="search" class="border rounded p-2" placeholder="Title or location" />
+      </div>
+      <div>
+        <label for="when" class="block text-sm">When</label>
+        <select id="when" class="border rounded p-2">
+          <option value="all">All</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="past">Past</option>
+        </select>
+      </div>
+      <!-- Only admins see this button (shown by events.js) -->
+      <a id="newEventBtn" href="event-form.html" class="hidden self-end bg-indigo-700 text-white rounded px-4 py-2">+ New event</a>
+    </div>
+
+    <p id="message" role="status" class="text-red-700 mb-2"></p>
+
+    <!-- Event cards are placed here by events.js -->
+    <div id="eventList" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-center gap-4 mt-6">
+      <button id="prevBtn" class="border rounded px-3 py-1 bg-white">Previous</button>
+      <span id="pageInfo" aria-live="polite"></span>
+      <button id="nextBtn" class="border rounded px-3 py-1 bg-white">Next</button>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>

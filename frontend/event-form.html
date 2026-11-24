@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event form - Civic Event</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body class="bg-slate-100 min-h-screen flex flex-col">
+  <div id="navbar"></div>
+
+  <main class="max-w-2xl mx-auto w-full p-4 flex-1">
+    <h1 id="formTitle" class="text-2xl font-bold mb-4">New event</h1>
+
+    <form id="eventForm" class="bg-white rounded-xl shadow p-6 space-y-4">
+      <div>
+        <label for="title" class="block text-sm font-medium">Title</label>
+        <input id="title" type="text" required class="w-full border rounded p-2" />
+      </div>
+      <div>
+        <label for="description" class="block text-sm font-medium">Description</label>
+        <textarea id="description" rows="4" class="w-full border rounded p-2"></textarea>
+      </div>
+      <div>
+        <label for="location" class="block text-sm font-medium">Location</label>
+        <input id="location" type="text" required class="w-full border rounded p-2" />
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label for="starts_at" class="block text-sm font-medium">Starts at</label>
+          <input id="starts_at" type="datetime-local" required class="w-full border rounded p-2" />
+        </div>
+        <div>
+          <label for="ends_at" class="block text-sm font-medium">Ends at</label>
+          <input id="ends_at" type="datetime-local" required class="w-full border rounded p-2" />
+        </div>
+      </div>
+      <div>
+        <label for="image" class="block text-sm font-medium">Image (max 2 MB)</label>
+        <input id="image" type="file" accept="image/*" class="w-full" />
+        <img id="preview" alt="Image preview" class="hidden mt-2 h-40 rounded object-cover" />
+      </div>
+
+      <p id="error" role="alert" class="text-red-700 text-sm"></p>
+      <button id="saveBtn" type="submit" class="bg-indigo-700 text-white rounded px-4 py-2 font-semibold">Save event</button>
+      <a href="events.html" class="ml-3 underline">Cancel</a>
+    </form>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/event-form.js"></script>
+</body>
+</html>

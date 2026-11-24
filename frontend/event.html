@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event details - Civic Event</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body class="bg-slate-100 min-h-screen flex flex-col">
+  <div id="navbar"></div>
+
+  <main class="max-w-3xl mx-auto w-full p-4 flex-1">
+    <a href="events.html" class="underline text-indigo-700">← Back to events</a>
+    <p id="message" role="status" class="text-red-700 my-2"></p>
+
+    <article id="eventBox" class="bg-white rounded-xl shadow mt-3 overflow-hidden"></article>
+
+    <!-- Register / cancel (normal users and admins) -->
+    <section class="mt-4">
+      <button id="regBtn" class="bg-indigo-700 text-white rounded px-4 py-2 font-semibold">Register</button>
+    </section>
+
+    <!-- Feedback form -->
+    <section class="bg-white rounded-xl shadow p-4 mt-4">
+      <h2 class="font-bold text-lg mb-2">Your feedback</h2>
+      <form id="feedbackForm" class="space-y-3">
+        <div>
+          <label for="rating" class="block text-sm font-medium">Rating (1 to 5)</label>
+          <select id="rating" class="border rounded p-2">
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Good</option>
+            <option value="3">3 - Okay</option>
+            <option value="2">2 - Poor</option>
+            <option value="1">1 - Bad</option>
+          </select>
+        </div>
+        <div>
+          <label for="comment" class="block text-sm font-medium">Comment</label>
+          <textarea id="comment" rows="3" class="w-full border rounded p-2"></textarea>
+        </div>
+        <p id="fbMsg" role="status" class="text-sm"></p>
+        <button type="submit" class="bg-slate-800 text-white rounded px-4 py-2">Send feedback</button>
+      </form>
+    </section>
+
+    <!-- ADMIN ONLY section (hidden for normal users by event.js) -->
+    <section id="adminBox" class="hidden bg-white rounded-xl shadow p-4 mt-4">
+      <h2 class="font-bold text-lg mb-2">Admin tools</h2>
+      <div class="flex gap-3 mb-4">
+        <a id="editBtn" class="bg-amber-600 text-white rounded px-4 py-2">Edit event</a>
+        <button id="deleteBtn" class="bg-red-700 text-white rounded px-4 py-2">Delete event</button>
+      </div>
+      <h3 class="font-semibold">Registered users</h3>
+      <ul id="registrants" class="list-disc pl-5 mb-4 text-sm"></ul>
+      <h3 class="font-semibold">Feedback <span id="avg" class="text-sm text-slate-600"></span></h3>
+      <ul id="feedbackList" class="list-disc pl-5 text-sm"></ul>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/event.js"></script>
+</body>
+</html>
