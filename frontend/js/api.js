@@ -16,5 +16,10 @@ function apiRequest(method, path, data, isFormData) {
       sessionStorage.clear();
       location.href = "login.html";
     }
+
+    // 403 = logged in but not allowed (for example a normal user calling an admin action)
+    if (xhr.status === 403) {
+      alert("You do not have permission to do this.");
+    }
   });
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile - Civic Event</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body class="bg-slate-100 min-h-screen flex flex-col">
+  <div id="navbar"></div>
+
+  <main class="max-w-2xl mx-auto w-full p-4 flex-1">
+    <h1 class="text-2xl font-bold mb-4">My profile</h1>
+
+    <form id="profileForm" class="bg-white rounded-xl shadow p-6 space-y-4">
+      <div>
+        <label for="full_name" class="block text-sm font-medium">Full name</label>
+        <input id="full_name" type="text" required class="w-full border rounded p-2" />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium">Email</label>
+        <input id="email" type="email" required class="w-full border rounded p-2" />
+      </div>
+      <!-- Role is shown but cannot be edited -->
+      <div>
+        <label for="role" class="block text-sm font-medium">Role</label>
+        <input id="role" type="text" disabled class="w-full border rounded p-2 bg-slate-100" />
+      </div>
+      <p id="msg" role="alert" class="text-sm"></p>
+      <button id="saveBtn" type="submit" class="bg-indigo-700 text-white rounded px-4 py-2 font-semibold">Save changes</button>
+    </form>
+
+    <h2 class="text-xl font-bold mt-8 mb-3">My registrations</h2>
+    <ul id="myRegs" class="space-y-2"></ul>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
